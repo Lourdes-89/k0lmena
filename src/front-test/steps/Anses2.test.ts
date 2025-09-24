@@ -16,22 +16,16 @@ import {
 
 } from '../locators/AnsesLocators';
 
-Given("navego en constancia de cuil", async () => {
-  for (const page of pages) {
-    console.log(`Ejecutando prueba en navegador: ${page.context().browser()?.browserType().name()}`);
-    await page.goto(BASEURL);
-  }
-});
 
 When('el usuario completa el formulario con:', async function (dataTable) {
   for (const page of pages) {
 
     const row = dataTable.hashes()[0];
-    await page.fill('#edit-nro-doc', row.documento);
-    await page.fill('#edit-name', row.nombre);
-    await page.fill('#edit-lastname', row.apellido);
-    await page.locator(`label[for="edit-sexo-${row.sexo}"]`).click();
-    await page.fill('#edit-date', row.fechanacimiento);
+    await page.fill('#NumeroDocumento', row.documento);
+    await page.fill('#Nombre', row.nombre);
+    await page.fill('#Apellido', row.apellido);
+    await page.locator(`label[for="sexo_${row.sexo}"]`).click();
+    await page.fill('#FechaNacimiento', row.fechanacimiento);
 
     await page.locator(consultar).click();
 

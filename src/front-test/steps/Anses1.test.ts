@@ -14,7 +14,7 @@ import {
 Given("el usuario navega en la pagina de Anses", async () => {
   for (const page of pages) {
     console.log(`Ejecutando prueba en navegador: ${page.context().browser()?.browserType().name()}`);
-    await page.goto(BASEURL);
+    await page.goto("https://www.anses.gob.ar/");
   }
 });
 
